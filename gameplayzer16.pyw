@@ -979,7 +979,7 @@ class MainWindow(QtGui.QMainWindow):
             potenz = int(lista[rig][23]); #potenziale
             ir = int(lista[rig][54]);#international reputation
             age = self.etac(int(lista[rig][41]));
-            ovr = int(lista[rig][90]);
+            ovr = int(int(lista[rig][90])*1.2-18);
             ovr = self.Remove_ir_from_ovr(ovr,ir);
             #VALUTAZIONE POTENZIALE
             potlimit=max(0,int((27-age)*2));
@@ -1154,13 +1154,13 @@ class MainWindow(QtGui.QMainWindow):
                 azone=-0.7143;
                 bzone=-6.7143;
                 czone=27
-                agil=64+random.randrange(-2,3)+int(azone*agilzone*agilzone+bzone*agilzone+czone)+agefactorphisical;#min(lmm,int(self.zone(agilzone,ovr,1))+agefactorphisical+overallfactorphisical);
-                bala=64+random.randrange(-2,3)+int(azone*balazone*balazone+bzone*balazone+czone)+agefactorphisical;#min(lmm,int(self.zone(balazone,ovr,1))+agefactorphisical+overallfactorphisical);
-                acce=64+random.randrange(-2,3)+int(azone*accezone*accezone+bzone*accezone+czone)+agefactorphisical;#min(lmm,int(self.zone(accezone,ovr,1))+agefactorphisical+overallfactorphisical);
-                spri=64+random.randrange(-2,3)+int(azone*sprizone*sprizone+bzone*sprizone+czone)+agefactorphisical;#min(lmm,int(self.zone(sprizone,ovr,1))+agefactorphisical+overallfactorphisical);
-                jump=64+random.randrange(-2,3)+int(azone*jumpzone*jumpzone+bzone*jumpzone+czone)+agefactorphisical;#min(lmm,int(self.zone(jumpzone,ovr,1))+agefactorphisical+overallfactorphisical);
-                stam=64+random.randrange(-2,3)+int(azone*stamzone*stamzone+bzone*stamzone+czone)+agefactorphisical;#min(lmm,int(self.zone(stamzone,ovr,1))+agefactorphisical+overallfactorphisical);
-                stre=64+random.randrange(-2,3)+int(azone*strezone*strezone+bzone*strezone+czone)+agefactorphisical;#min(lmm,int(self.zone(strezone,ovr,1))+agefactorphisical+overallfactorphisical);
+                agil=67+random.randrange(-2,3)+int(azone*agilzone*agilzone+bzone*agilzone+czone)+agefactorphisical;#min(lmm,int(self.zone(agilzone,ovr,1))+agefactorphisical+overallfactorphisical);
+                bala=67+random.randrange(-2,3)+int(azone*balazone*balazone+bzone*balazone+czone)+agefactorphisical;#min(lmm,int(self.zone(balazone,ovr,1))+agefactorphisical+overallfactorphisical);
+                acce=67+random.randrange(-2,3)+int(azone*accezone*accezone+bzone*accezone+czone)+agefactorphisical;#min(lmm,int(self.zone(accezone,ovr,1))+agefactorphisical+overallfactorphisical);
+                spri=67+random.randrange(-2,3)+int(azone*sprizone*sprizone+bzone*sprizone+czone)+agefactorphisical;#min(lmm,int(self.zone(sprizone,ovr,1))+agefactorphisical+overallfactorphisical);
+                jump=67+random.randrange(-2,3)+int(azone*jumpzone*jumpzone+bzone*jumpzone+czone)+agefactorphisical;#min(lmm,int(self.zone(jumpzone,ovr,1))+agefactorphisical+overallfactorphisical);
+                stam=67+random.randrange(-2,3)+int(azone*stamzone*stamzone+bzone*stamzone+czone)+agefactorphisical;#min(lmm,int(self.zone(stamzone,ovr,1))+agefactorphisical+overallfactorphisical);
+                stre=67+random.randrange(-2,3)+int(azone*strezone*strezone+bzone*strezone+czone)+agefactorphisical;#min(lmm,int(self.zone(strezone,ovr,1))+agefactorphisical+overallfactorphisical);
                 wwt = wt-perfectwt;
                 hht = ht-180;
                 if(ht>=200):
@@ -1886,20 +1886,20 @@ class MainWindow(QtGui.QMainWindow):
         tmp=5;
         if(tipo==0):
             if(position==1):
-                tmp=random.randrange(ovr+0,ovr+9);#14
+                tmp=random.randrange(ovr+0,99);#ovr+9
             elif(position==2):
-                tmp=random.randrange(ovr-5,ovr+4);#14
+                tmp=random.randrange(ovr-0,95);#ovr+4
             elif(position==3):
-                tmp=random.randrange(ovr-10,ovr-1);#14#5
+                tmp=random.randrange(ovr-10,80);#ovr-1
             elif(position==4):
-                tmp=random.randrange(ovr-40,ovr-11);#4
+                tmp=random.randrange(ovr-40,75);#ovr-11
             elif(position==5):
-                tmp=random.randrange(ovr-55,ovr-41);#8
+                tmp=random.randrange(ovr-55,45);#ovr-41
             elif(position==6):
                 tmp=random.randrange(10,max(11,ovr-51));
         elif(tipo==1):
             if(position==1):
-                tmp=random.randrange(85,90);#14
+                tmp=random.randrange(85,94);#14
             elif(position==2):
                 tmp=random.randrange(80,89);#14
             elif(position==3):
@@ -1909,10 +1909,10 @@ class MainWindow(QtGui.QMainWindow):
             elif(position==5):
                 tmp=random.randrange(33,55);#14
             elif(position==6):
-                tmp=random.randrange(33,34);#14
+                tmp=random.randrange(10,34);#14
         elif(tipo==2):
             if(position==1):
-                tmp=random.randrange(85,90);#14
+                tmp=random.randrange(85,94);#14
             elif(position==2):
                 tmp=random.randrange(80,89);#14
             elif(position==3):
@@ -1922,14 +1922,16 @@ class MainWindow(QtGui.QMainWindow):
             elif(position==5):
                 tmp=random.randrange(33,55);#14
             elif(position==6):
-                tmp=random.randrange(33,34);#14
+                tmp=random.randrange(10,34);#14
         tmp=max(1,min(int(tmp),random.randrange(96,100)));
         return tmp;
     
     def SqGameplayization(self,lista):
         for rig in range(0,len(lista)):
             balltype=int(lista[rig][1]);
-            ipre=int(lista[rig][61]);#1-20
+            ipre=int(lista[rig][61]);
+            dpre=int(lista[rig][18]);
+            dpre = ipre;
             teamid=int(lista[rig][41]);
             transferbudget = int(lista[rig][53]);
             defagg = int(lista[rig][38]);
@@ -1945,23 +1947,26 @@ class MainWindow(QtGui.QMainWindow):
             ccposi = int(lista[rig][51]);
             deflin = int(lista[rig][60]);
             #ifat = int(ipre*1);#10-75;1-20
-            #ifat=int(ipre-14)*4;#juve.20 = 30, serie a= 0, cesena -16
+            #ifat=int(ipre-14)*4;#juve.20,atalanta.12,carpi.7.como.4
             if(ipre-15>0):
-                ifat=(ipre-15)*6;
+                ifat=(ipre-15)*9;#+30
+                ccposi=0;
+                deflin=1;
+                buspos=0;
             else:
-                ifat=(ipre-15)*8;
-            defagg = 40+ipre*2;#int(55+ifat+random.randrange(-5,5));#contain-closein-doublecharge
-            defmen = 80;#40+ipre*2;#int(55+ifat+random.randrange(-5,5));#stayback-presslittle-pressmuch
-            ccshot = 80;#40+ipre*2;#int(75+random.randrange(-5,5));#less-mixed-more shoots
-            ccpass = 60;#40+ipre*2;#int(75+random.randrange(-5,5));#secure-normal-risky
-            cccros = 50;#int(50+ifat+random.randrange(-5,5));#little-normal-lots
-            busspe = 60;#0+ipre*2;#int(75+random.randrange(-5,5));#slow-medium-fast buildup
-            buspas = 80;#80-ipre*2;#int(60-ifat+random.randrange(-5,5));#short-mixed-long passing
-            busdri = 80;#50;#int(75+random.randrange(-5,5));#less-mixed-much
-            defwid = 50;#int(50-ifat+random.randrange(-5,5));
-            ccposi=0;
-            deflin=1;
-            buspos=0;
+                ifat=(ipre-15)*3;#-66
+                ccposi=1;
+                deflin=0;
+                buspos=1;
+            defagg = 40+ifat+random.randrange(-5,5);#int(55+ifat+random.randrange(-5,5));#contain-closein-doublecharge
+            defmen = 40+ifat+random.randrange(-5,5);#40+ipre*2;#int(55+ifat+random.randrange(-5,5));#stayback-presslittle-pressmuch
+            ccshot = 40+ifat+random.randrange(-5,5);#40+ipre*2;#int(75+random.randrange(-5,5));#less-mixed-more shoots
+            ccpass = 40+ifat+random.randrange(-5,5);#40+ipre*2;#int(75+random.randrange(-5,5));#secure-normal-risky
+            cccros = 40+ifat+random.randrange(-5,5);#int(50+ifat+random.randrange(-5,5));#little-normal-lots
+            busspe = 40+ifat+random.randrange(-5,5);#0+ipre*2;#int(75+random.randrange(-5,5));#slow-medium-fast buildup
+            buspas = 40+ifat+random.randrange(-5,5);#80-ipre*2;#int(60-ifat+random.randrange(-5,5));#short-mixed-long passing
+            busdri = 40+ifat+random.randrange(-5,5);#50;#int(75+random.randrange(-5,5));#less-mixed-much
+            defwid = 40+ifat+random.randrange(-5,5);#int(50-ifat+random.randrange(-5,5));
             pressingalto = [0];
             possessopalla = [0];
             contropiede = [0];
@@ -2026,6 +2031,7 @@ class MainWindow(QtGui.QMainWindow):
                 tras = int((transferbudget)/1000.0);
                 tras2 = tras*1000;
             lista[rig][53] = str(tras2);
+            lista[rig][18] = str(dpre);
             lista[rig][38] = str(max(15,min(85,defagg)));#defaggress
             lista[rig][14] = str(max(15,min(85,defmen)));#defmentality
             lista[rig][28] = str(max(15,min(85,buspas)));#buspass
@@ -2083,7 +2089,7 @@ class MainWindow(QtGui.QMainWindow):
         #py=[0.08,0.10,0.30,0.20,0.15,0.13,0.15,0.20,0.30,0.40,0.38,0.40,0.55,0.50,0.48,0.50,0.55,0.60,0.58,0.60,0.80,0.78,0.80,0.80,0.85,0.83,0.85,0.80];
         #####0#####1####2####3####4###5####6####7#####8###9####10###11####12###13###14###15###16###17##18###19
         px=[0.50,0.50,0.95,0.95,0.75,0.50,0.25,0.05,0.05,0.75,0.50,0.25,0.95,0.75,0.50,0.25,0.05,0.75,0.50,0.25,0.75,0.50,0.25,0.95,0.75,0.50,0.25,0.05];
-        py=[0.05,0.10,0.35,0.20,0.15,0.15,0.15,0.20,0.35,0.35,0.35,0.35,0.50,0.50,0.50,0.50,0.50,0.65,0.65,0.65,0.70,0.70,0.70,0.75,0.80,0.80,0.80,0.75];
+        py=[0.05,0.10,0.35,0.20,0.15,0.15,0.15,0.20,0.35,0.30,0.30,0.30,0.50,0.45,0.45,0.45,0.50,0.70,0.70,0.70,0.80,0.80,0.80,0.80,0.85,0.85,0.85,0.80];
         px[0]=0.50;
         px[20]=0.80;
         px[21]=0.60;
